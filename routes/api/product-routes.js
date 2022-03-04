@@ -126,7 +126,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    // delete one product by its `id` value
+  
     Product.destroy({
             where: {
                 id: req.params.id
@@ -147,7 +147,7 @@ router.delete('/:id', (req, res) => {
 
 module.exports = router;
 
-// update product
+
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -171,7 +171,7 @@ router.put('/:id', (req, res) => {
             tag_id,
           };
         });
-      // figure out which ones to remove
+    
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
